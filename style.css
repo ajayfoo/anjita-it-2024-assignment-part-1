@@ -119,10 +119,36 @@ main {
 }
 
 .floral-pattern-bg {
-    position: absolute;
+    position: fixed;
     z-index: -2;
+    bottom: 0;
     right: 0;
     max-inline-size: 30%;
+}
+
+.twelve-dots-pattern {
+    z-index: -2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-inline-size: max-content;
+    gap: 0.3em;
+    position: fixed;
+    left: var(--size-xxl);
+    bottom: 30%;
+}
+
+.twelve-dots-pattern>.dot {
+    width: 0.5em;
+    height: 0.5em;
+    background-color: black;
+    background-color: rgb(214 215 219);
+    border-radius: 50%;
+}
+
+.twelve-dots-pattern.other {
+    left: calc(4 * var(--size-xxl));
+    bottom: 0;
+
 }
 
 @media screen and (max-width:1350px) {
@@ -214,7 +240,7 @@ main {
     }
 
     .floral-pattern-bg {
-        right: 35%;
+        bottom: 30%;
     }
 }
 
