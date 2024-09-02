@@ -9,6 +9,8 @@
     --size-m: clamp(0.9rem, 1rem + 1vh, 3rem);
     --size-l: clamp(1rem, 1rem + 3vh, 5rem);
     --size-xxl: clamp(1rem, 2rem + 8vw, 8rem);
+    --fs-l: clamp(1.5rem, 1rem + 2vw, 3rem);
+    --fs-xxl: clamp(2rem, 1rem + 4vw, 5rem);
 }
 
 body,
@@ -32,13 +34,13 @@ main {
 }
 
 .banner>h1 {
-    font-size: 3rem;
+    font-size: var(--fs-l);
     font-weight: 300;
     padding-block-end: var(--size-l);
 }
 
-.perfect {
-    font-size: 4rem;
+.banner>h1>.perfect {
+    font-size: var(--fs-xxl);
     font-weight: 800;
 }
 
@@ -52,7 +54,7 @@ main {
     font-size: 0.9rem;
     gap: var(--size-xs);
     margin-block-end: var(--size-s);
-    max-width: 66ch;
+    max-inline-size: 66ch;
 }
 
 .enquire-now-button {
@@ -111,4 +113,107 @@ main {
 .img-6 {
     grid-column-start: 4;
     grid-row: 2/5;
+}
+
+@media screen and (max-width:1350px) {
+    .details {
+        max-inline-size: 55ch;
+    }
+
+    .img-2 {
+        grid-row: 4/7;
+    }
+
+    .img-3 {
+        grid-row: 7/10;
+    }
+}
+
+@media screen and (max-width:1050px) {
+    .grid-images {
+        gap: var(--size-xxxs);
+    }
+
+    .img-1 {
+        grid-row: 6/9;
+    }
+
+    .img-2 {
+        grid-row: 5/8;
+    }
+
+    .img-3 {
+        grid-row: 8/11;
+    }
+
+    .img-4 {
+        grid-column-start: 3;
+        grid-row: 4/7;
+    }
+
+    .img-5 {
+        grid-column-start: 3;
+        grid-row: 7/10;
+    }
+}
+
+@media screen and (max-width:870px) {
+    .img-1 {
+        grid-row: 8/11;
+    }
+
+    .img-2 {
+        grid-row: 7/10;
+    }
+
+    .img-3 {
+        grid-column-start: 3;
+        grid-row: 5/8;
+    }
+
+    .img-4 {
+        grid-column-start: 3;
+        grid-row: 8/11;
+    }
+
+    .img-5 {
+        grid-column-start: 4;
+        grid-row: 5/8;
+    }
+
+}
+
+@media screen and (max-width:720px) {
+    main {
+        padding: unset;
+        margin: var(--size-l);
+    }
+
+    .grid-images {
+        margin-block-start: var(--size-s);
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-rows: unset;
+    }
+
+    .grid-images>* {
+        grid-column-start: unset;
+        grid-row: unset;
+    }
+}
+
+
+@media screen and (max-width:481px) {
+    main {
+        margin: var(--size-s);
+    }
+
+    main {
+        display: grid;
+    }
+
+    .enquire-now-button {
+        justify-self: center;
+    }
 }
